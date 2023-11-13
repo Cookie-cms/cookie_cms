@@ -10,5 +10,5 @@
 | register login use pdo | :x: |
 | home page | :x: | 
 | change username - password | :x: |
-| chnage skin - cape | :x: |
+| upload 64x64 skins | :x: |
 | admin panel | :x: |
