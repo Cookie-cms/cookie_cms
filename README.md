@@ -6,7 +6,7 @@
 | Task  | status |
 | ------------- | ------------- |
 | installation  | ✔  |
-| switcher themes  | :x:  |
+| switcher themes  | ✔  |
 | register login use pdo | :x: |
 | home page | :x: | 
 | change username - password | :x: |
