@@ -5,7 +5,7 @@
 
 | Task  | status |
 | ------------- | ------------- |
-| installation  | +  |
+| installation  | ✔  |
 | switcher themes  | :x:  |
 | register login use pdo | :x: |
 | home page | :x: | 
