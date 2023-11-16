@@ -1,7 +1,7 @@
 # cookie_site
 
-
-
+first will be small with easiest code
+after that i try make normall code
 
 | Task  | status |
 | ------------- | ------------- |
