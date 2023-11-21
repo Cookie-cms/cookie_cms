@@ -1,25 +1,24 @@
-# cookie_site
 
-first will be small with easiest code
-after that i try make normall code
+# Cookie_site
 
-# version 
+
+
 | version  | status |
 | ------------- | ------------- |
 | 1.x  | :x:  |
 | 2.x | :x:  |
 | 3.x| :x: |
 
+## FAQ
 
-<!--| Task  | status |
-#| ------------- | ------------- |
-#| installation  | ✔  |
-#| switcher themes  | ✔  |
-#| register login use pdo | :x: |
-#| home page | :x: | 
-#| change username - password | :x: |
-#| upload 64x64 skins | :x: |
-#| admin panel | :x: | -->
+#### Warning: move_uploaded_file(): Unable to move '/tmp/php5y9Jby' to '/var/www/cookie_site/
 
+``bash
+chmod -R 777 /sitedir/
+``
+
+<!-- #### Question 2 -->
+
+<!-- Answer 2 -->
 
 [donate me](https://oxapay.com/donate/48071260)
