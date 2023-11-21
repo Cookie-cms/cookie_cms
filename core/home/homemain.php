@@ -16,7 +16,6 @@ require_once $_SERVER['DOCUMENT_ROOT']."/core/inc/mysql.php";
 
         if ($fetchedUser) {
             $playername = $fetchedUser['username'];
-        } else {
         }
     } catch (PDOException $e) {
         echo "Database Error: " . $e->getMessage();
