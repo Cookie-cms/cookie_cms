@@ -20,3 +20,6 @@ after that i try make normall code
 #| change username - password | :x: |
 #| upload 64x64 skins | :x: |
 #| admin panel | :x: | -->
+
+
+[donate me](https://oxapay.com/donate/48071260)
