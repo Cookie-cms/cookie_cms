@@ -1,12 +1,14 @@
 const toggleButton = document.getElementById('toggleButton');
+const body = document.body;
 
 toggleButton.addEventListener('change', function() {
-    const body = document.body;
-    if (this.checked) {
-        body.style.backgroundImage = "url('../assets/white_bg.png')"; // Set white background
-        body.classList.add('blurred');
-    } else {
-        body.style.backgroundImage = "url('../assets/night_bg.png')"; // Set night background
-        body.classList.remove('blurred');
-    }
+
+  if (toggleButton.checked) {
+    body.classList.remove('light'); // Remove light class
+    body.style.backgroundImage = "url('assets/night_bg.png')"; // Dark bg
+  } else {
+    body.classList.add('light'); // Add light class 
+    body.style.backgroundImage = "url('assets/light_bg.png')"; // Light bg
+  }
+  
 });
