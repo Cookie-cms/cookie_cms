@@ -1,35 +1,28 @@
-<!-- <?php 
-// session_start();
-
-// if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
-
-    ?> -->
+<?php 
+session_start();
+if (isset($_SESSION['id']) && isset($_SESSION['uuid'])) {
+include 'inc/header.php';
+require_once"core/home/homemain.php";
+?>
     <!DOCTYPE html>
     <html>
     <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
          <!-- <link href="css/home.css"> -->
-        <title>HOME</title>
+         <title><?php echo $titlepage ?> &#x2022 Home</title>
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
          <link rel="stylesheet" href="css/home.css">
-         <script src="js/"></script>
-    
     </head>
     <body>
-    <style>
-        body {
-      background-image: url('assets/night_bg.png'); /* Default background image */
-    }
-    
-    .dark {
-      background-image: url('assets/light_bg.png'); /* Background image when the toggle is on */
-    }
-    </style>
-                             <div class="container mt-3">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="toggleButton">
-            <label class="form-check-label" for="toggleButton">Toggle Dark Mode</label>
-        </div>
+    <!-- <div id="navbarContainer"></div> -->
+    <link rel="stylesheet" href="css/main.css">
+<div class="container mt-3">
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="toggleButton" checked>
+        <label class="form-check-label" for="toggleButton">Toggle Dark Mode</label>
+    </div>
+</div>
+
     </div>
     
       <span class="slider"></span>
@@ -44,35 +37,42 @@
                 <div class="col-md-8 w-50">
                     <div class="p-3 py-5">
                    </div>
-                        <div class="row mt-1">
-                            <div class="col-md-6"><label for="skin" class="form-label">Username:</label><input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>" disabled></div>
-                            <div class="col-md-6"><label for="skin" class="form-label">Password:</label><input type="password" class="form-control" placeholder="password" value="password" disabled></div>
-                        </div>
-                        <div class="row mt-1">
-                            <div class="col-md-6">
-                                  <label for="skin" class="form-label ">Skin:</label>
-                                  <input class="form-control col-md-6" type="file" id="skin" disabled>
+                   <form method="post" action="core/home/update.php" enctype="multipart/form-data">
+                            <div class="row mt-1">
+                                <div class="col-md-6">
+                                    <label for="username" class="form-label">Username:</label>
+                                    <input type="text" class="form-control" placeholder="Username" value="" name="new_username" id="username">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label">Password:</label>
+                                    <input type="password" class="form-control" placeholder="Password" value="" name="new_password" id="password">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                  <label for="skin" class="form-label">Cape:</label>
-                                  <input class="form-control col-md-6" type="file" id="skin" disabled>
+                            <div class="row mt-1">
+                                <div class="col-md-6">
+                                    <label for="skin" class="form-label">Skin:</label>
+                                    <input class="form-control col-md-6" type="file" id="new_skin" name="new_skin">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cape" class="form-label" style="display: none;">Cape:</label>
+                                    <input class="form-control col-md-6" type="file" id="cape" style="display: none;" disabled>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <form method="post">
-                                                    <!-- <button type="button" class="btn btn-success" >Success</button> -->
-                                                    <!-- <div class="col-sm-9 text-secondary"> -->
-                                                    <button type="submit" name="ds" value="ds" class="btn btn-danger col-md-4" disabled>Connect discord</button>
-                                                </form>
-                        </div>    
-                        <div class="mt-3 text-right"><button class="btn btn-primary profile-button col-md-4 " type="button" disabled>Save Profile</button></div>
+                            <div class="mt-3 text-right">
+                                <button class="btn btn-primary profile-button col-md-4" type="submit" name="update">Save Profile</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </body>
+
     <script src="js/skinview3d.bundle.js"></script>
+    <script src="js/darktheme.js"></script>
+
     <script>
+        
     let skinViewer = new skinview3d.SkinViewer({
             canvas: document.getElementById("skin_container"),
             width: 300,
@@ -85,10 +85,10 @@
         skinViewer.height = 600;
     
         // Load another skin
-        skinViewer.loadSkin("uploads/skins/Default.png");
+        skinViewer.loadSkin("uploads/skins/<?php echo $_SESSION['uuid']; ?>.png");
     
         // Load a cape
-        skinViewer.loadCape("uploads/capes/Default.png");
+        skinViewer.loadCape("uploads/capes/<?php echo $_SESSION['uuid']; ?>.png");
     
         // Load an elytra (from a cape texture)
     
@@ -125,7 +125,7 @@
         // Remove the animation
         // skinViewer.animation = null;
     
-        skinViewer.nameTag = "<?php echo $_SESSION['username']; ?>";
+        skinViewer.nameTag = "<?php echo $playername; ?>";
     
     //     // Get the radio button elements by their names
     //     const elytraRadioButton = document.querySelector('input[name="back_equipment"][value="elytra"]');
@@ -153,33 +153,24 @@
     //     }
     
     </script>
+      <script>
+    fetch('inc/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbarContainer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error fetching navbar content:', error);
+      });
+  </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- <div class="background-image"></div> -->
-    <script>
-        const toggleButton = document.getElementById('toggleButton');
-        const body = document.body;
-
-        toggleButton.addEventListener('change', function() {
-            if (toggleButton.checked) {
-                body.classList.add('dark');
-                body.style.backgroundImage = "url('assets/light_bg.png')"; // Change background
-            } else {
-                body.classList.remove('dark');
-                body.style.backgroundImage = "url('assets/night_bg.png')"; // Change background
-            }
-        });
-    </script>
-    </script>
-      <!-- <script src="script.js"></script> -->
-    <!-- <script src="js/darktheme.js"></script> -->
-    
-    </html>
-    
-    <!-- <?php 
-    // }else{
+    <?php 
+    }else{
         //  header("Location: index.php");
         //  exit();
-    // }
-     ?> -->
+        echo "nope"; 
+    }
+    //  ?>
     

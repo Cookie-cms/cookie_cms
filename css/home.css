@@ -1,5 +1,0 @@
-body {
-    background-image: url('../assets/night_bg.png'); /* Default night background */
-    transition: background-image 0.5s ease; /* Transition for smoother effect */
-    /* Other body styles */
-}
