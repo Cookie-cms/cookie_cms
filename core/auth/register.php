@@ -1,19 +1,24 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', true);
-require_once $_SERVER['DOCUMENT_ROOT']."/core/inc/mysql.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
+
+function validate($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_password'])) {
-    function validate($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
     $username = validate($_POST['username']);
     $pass = validate($_POST['password']);
     $re_pass = validate($_POST['re_password']);
+
+    if (strlen($username) < 4 || !preg_match('/^[A-Za-z0-9_]+$/', $username)) {
+        echo "Username should be at least 4 characters long and contain only English keyboard characters.";
+        exit();
+    }
 
     if ($pass !== $re_pass) {
         echo "Passwords do not match.";
@@ -39,8 +44,32 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
             $stmt->bindParam(':pass', $hashed_password);
             $stmt->execute();
 
-            echo "User created successfully!";
-            exit();
+            $user = [
+                'id' => $conn->lastInsertId(),
+                'uuid' => $uuid
+            ];
+
+            if ($user) {
+                session_start();
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['uuid'] = $user['uuid'];
+
+                $defaultSkinPath = $_SERVER['DOCUMENT_ROOT'] . "/assets/default.png";
+                $uploadDirectory = $_SERVER['DOCUMENT_ROOT'] . "/uploads/skins/";
+                $destinationFileName = $uploadDirectory . $user['uuid'] . ".png";
+
+                if (file_exists($defaultSkinPath) && copy($defaultSkinPath, $destinationFileName)) {
+                    $home = "/home.php";
+                    header("Location: /home.php");
+                    exit();
+                } else {
+                    echo "Failed to copy the default skin to the user's directory.";
+                    exit();
+                }
+            } else {
+                echo "Failed to fetch user data.";
+                exit();
+            }
         }
     } catch (PDOException $e) {
         echo "An error occurred during registration. Please try again later.";
