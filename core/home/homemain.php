@@ -11,13 +11,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/core/inc/mysql.php";
         $stmt = $conn->prepare("SELECT username FROM users WHERE uuid = :uuid");
         $stmt->bindParam(':uuid', $sessionUUID);
         $stmt->execute();
-
         $fetchedUser = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($fetchedUser) {
-            $playername = $fetchedUser['username'];
-        } else {
-        }
+        $playername = $fetchedUser['username'];
     } catch (PDOException $e) {
         echo "Database Error: " . $e->getMessage();
     } catch (Exception $e) {
