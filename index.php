@@ -1,6 +1,6 @@
 <?php
-// error_reporting(E_ALL);
-// ini_set('display_errors', true);
+error_reporting(E_ALL);
+ini_set('display_errors', true);
 
 $configFile = 'core/configs/config.inc.php';
 if (!file_exists($configFile)) {
@@ -12,8 +12,10 @@ if (!file_exists($configFile)) {
 }
 
 try {
+    global $debugSetting, $developmentSetting, $generatorUsernameSetting;
+    
     $debugSetting = $DEBUG['debug'];
-    $developmentSetting = $DEBUG['devlopment'];
+    $developmentSetting = $DEBUG['development'];
     $generatorUsernameSetting = $DEBUG['generatorusername'];
 
     // Rest of your code using the settings

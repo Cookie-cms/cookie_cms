@@ -1,11 +1,15 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+// error_reporting(E_ALL);  
+// ini_set('display_errors', true);
 // include 'inc/header.php';
 
 // require("core/configs/config.inc.php")
 // require_once("core");
+global $generatorUsernameSetting; // Access the variable from the global scope
+
+// Use $generatorUsernameSetting in your template
+
 ?>
 
     <!DOCTYPE html>
@@ -80,16 +84,12 @@ ini_set('display_errors', true);
 
     </div>
     <script>
-        function generateRandomString(length) {
-            const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let randomString = '';
-            for (let i = 0; i < length; i++) {
-                randomString += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return randomString;
-        }
-
-        window.onload = function() {
+    // Accessing the PHP variable value in JavaScript
+    var generatorUsernameSetting = <?php echo json_encode($generatorUsernameSetting); ?>;
+    
+    // Check if generatorUsernameSetting is true before generating usernames
+    window.onload = function() {
+        if (generatorUsernameSetting) {
             const usernameInput = document.getElementById('registerUsername');
             const passwordInput = document.getElementById('registerPassword');
             const rePasswordInput = document.getElementById('registerrePassword');
@@ -98,11 +98,22 @@ ini_set('display_errors', true);
                 const generatedUsername = generateRandomString(8);
                 
                 usernameInput.value = generatedUsername;
-                passwordInput.value = generatedUsername; // Используем то же самое имя как пароль
+                passwordInput.value = generatedUsername; // Using the same name as the password
                 rePasswordInput.value = generatedUsername;
             }
-        };
-    </script>
+        }
+    };
+
+    function generateRandomString(length) {
+        const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let randomString = '';
+        for (let i = 0; i < length; i++) {
+            randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return randomString;
+    }
+</script>
+
 </div>
 
     </body>
