@@ -1,0 +1,2 @@
+<?php
+$titlepage = "Cookie site";?>

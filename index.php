@@ -1,89 +1,67 @@
 <?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
 
-error_reporting(E_ALL);
-ini_set('display_errors', true);
-include 'inc/header.php';
+$configFile = 'core/configs/config.inc.php';
+if (!file_exists($configFile)) {
+    header('Location: /setup/');
+}else{
 
-// require("core/configs/config.inc.php")
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/template.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/configs/config.inc.php";
+}
+
+try {
+    $debugSetting = $DEBUG['debug'];
+    $developmentSetting = $DEBUG['devlopment'];
+    $generatorUsernameSetting = $DEBUG['generatorusername'];
+
+    // Rest of your code using the settings
+} catch (Exception $e) {
+    echo 'Exception caught: ' . $e->getMessage();
+}
+
+$requestUri = $_SERVER['REQUEST_URI'];
+$uriSegments = explode('/', trim($requestUri, '/'));
+$page = isset($uriSegments[0]) && $uriSegments[0] !== '' ? $uriSegments[0] : 'index';
+
+
+$templatePath = __DIR__ . "/templates/{$template}/pages/{$page}.php";
+$corePagePath = __DIR__ . "/core/{$page}/main.php";
+
+if (in_array('logout', $uriSegments)) {
+    $corePagePath = $_SERVER['DOCUMENT_ROOT'] . '/core/auth/logout.php';
+} else {
+    $corePagePath = __DIR__ . "/core/{$page}/main.php";
+}
+if ($debugSetting) {
+    echo "Template: {$template}<br>"; // Debug: Check the current template
+    echo "Template Path: {$templatePath}<br>"; // Debug: Check the path to the page
+    echo "Core Page Path: {$corePagePath}<br>"; // Debug: Check the path to the core page
+    echo "Requested URI: {$requestUri}<br>"; // Debug: Output the requested URI
+}
+
+
+define('__RD__', '/');
+define('__RDS__', $_SERVER['DOCUMENT_ROOT']);
+define('__UD__', __RD__ . 'uploads/');
+define('__TD__', __RDS__ . "/templates/{$template}/");
+define('__TDS__', __RD__ . "templates/{$template}/");
+define('__CD__', __RDS__ . '/core/');
+define('__CF__', __CD__ . 'configs/');
+define('__CI__', __CD__ . 'inc/');
+define('__CSS__', __TD__ . 'css/');
+define('__JS__', __TD__ . 'js/');
+define('__AS__', __TD__ . 'assets/');
+define('__INT__', __TD__ . 'inc/');
+
+
+if (file_exists($templatePath)) {
+    include __TD__ . 'inc/header.php';
+    include $templatePath;
+} elseif (file_exists($corePagePath)) {
+    include $corePagePath;
+} else {
+    echo '404 - Page Not Found';
+}
 ?>
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-         <!-- <link href="css/home.css"> -->
-         <title><?php echo $titlepage ?> &#x2022 Index</title>
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-         <!-- <link rel="stylesheet" href="css/home.css"> -->
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    </head>
-    <body>
-    <!-- <div id="navbarContainer"></div> -->
-    <link rel="stylesheet" href="css/main.css">
-
-<div class="container ">
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="toggleButton" checked>
-        <label class="form-check-label" for="toggleButton">Toggle Dark Mode</label>
-</div>
-</div>   
-    <div class="container rounded mt-5 position-absolute top-50 start-50 translate-middle">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Login</h3>
-            <form method="post" action="core/auth/login.php">
-                <div class="form-group">
-                    <label for="loginUsername">Username:</label>
-                    <input type="text" class="form-control mt-3" id="loginUsername" name="username" placeholder="Username" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password:</label>
-                    <input type="password" class="form-control mt-3" id="loginPassword" name="password" placeholder="Password" required>
-                </div>
-                <div class="form-check mt-3">
-                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Remember me
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Login</button>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <h3>Register</h3>
-            <form method="post" action="core/auth/register.php">
-                <div class="form-group">
-                    <label for="registerUsername">Username:</label>
-                    <input type="text" class="form-control mt-3" id="registerUsername" name="username" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <label for="registerPassword">Password:</label>
-                    <input type="password" class="form-control mt-3" id="registerPassword" name="password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="registerrePassword">Re-enter Password:</label>
-                    <input type="password" class="form-control mt-3" id="registerrePassword" name="re_password" placeholder="Password">
-                </div>
-                <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Accept terms
-                    </label>
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-3">Register</button>
-            </form>
-        </div>
-
-    </div>
-</div>
-
-    </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- <div class="background-image"></div> -->
-    </script>
-      <!-- <script src="script.js"></script> -->
-    <script src="js/darktheme.js"></script>
-    
-    </html>

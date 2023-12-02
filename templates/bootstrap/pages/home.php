@@ -1,8 +1,19 @@
-<?php 
+<!-- <?php 
+
+// if (isset($_SESSION['id']) && isset($_SESSION['uuid'])) {
+// include 'inc/header.php';
+?> -->
+<?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['uuid'])) {
-include 'inc/header.php';
-require_once"core/home/homemain.php";
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
+// require_once"core/home/homemain.php";
+
+require __CF__ . 'staticinfo.php';
+require_once __CD__ . 'home/main.php';
+// require_once __RD__ . '/index.php';
+echo "__TD__ Path: " . __TDS__ . "<br>";
+
 ?>
     <!DOCTYPE html>
     <html>
@@ -11,21 +22,22 @@ require_once"core/home/homemain.php";
          <!-- <link href="css/home.css"> -->
          <title><?php echo $titlepage ?> &#x2022 Home</title>
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-         <link rel="stylesheet" href="css/home.css">
+         <!-- <link rel="stylesheet" href="css/home.css"> -->
+         <link rel="stylesheet" href="<?php echo __TDS__; ?>css/main.css">
     </head>
     <body>
     <!-- <div id="navbarContainer"></div> -->
     <link rel="stylesheet" href="css/main.css">
 <div class="container mt-3">
-    <div class="form-check form-switch">
+    <!-- <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="toggleButton" checked>
         <label class="form-check-label" for="toggleButton">Toggle Dark Mode</label>
-    </div>
+    </div> -->
 </div>
 
     </div>
     
-      <span class="slider"></span>
+      <!-- <span class="slider"></span> -->
     </label>
     
          <div class="container rounded  mt-5">
@@ -68,8 +80,8 @@ require_once"core/home/homemain.php";
         </div>
     </body>
 
-    <script src="js/skinview3d.bundle.js"></script>
-    <script src="js/darktheme.js"></script>
+    <script src="<?php echo __RD__ ?>templates/main/skinview3d.bundle.js"></script>
+    <script src="<?php echo __RD__ ?>js/darktheme.js"></script>
 
     <script>
         
@@ -85,11 +97,14 @@ require_once"core/home/homemain.php";
         skinViewer.height = 600;
     
         // Load another skin
-        skinViewer.loadSkin("uploads/skins/<?php echo $_SESSION['uuid']; ?>.png");
+        // skinViewer.loadSkin("<?php echo __RD__; ?>uploads/skins/<?php echo $_SESSION['uuid']; ?>.png");
+        skinViewer.loadSkin("<?php echo __RD__; ?>uploads/skins/<?php echo $_SESSION['uuid']; ?>.png");
     
         // Load a cape
         skinViewer.loadCape("uploads/capes/<?php echo $_SESSION['uuid']; ?>.png");
     
+        // skinViewer.loadSkin("<?php echo __RD__ ?>uploads/skins/Default.png");
+
         // Load an elytra (from a cape texture)
     
         // Unload(hide) the cape / elytra
@@ -126,6 +141,8 @@ require_once"core/home/homemain.php";
         // skinViewer.animation = null;
     
         skinViewer.nameTag = "<?php echo $playername; ?>";
+        // skinViewer.nameTag = "s";
+
     
     //     // Get the radio button elements by their names
     //     const elytraRadioButton = document.querySelector('input[name="back_equipment"][value="elytra"]');
@@ -166,11 +183,11 @@ require_once"core/home/homemain.php";
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- <div class="background-image"></div> -->
-    <?php 
-    }else{
+    <!-- <?php 
+    // }else{
         //  header("Location: index.php");
         //  exit();
-        echo "nope"; 
-    }
+        // echo "nope"; 
+    // }
     //  ?>
     

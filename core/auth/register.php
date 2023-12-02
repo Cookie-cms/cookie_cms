@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
-
+require_once $_SERVER['DOCUMENT_ROOT'] . "/index.php";
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -54,16 +54,19 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['uuid'] = $user['uuid'];
 
-                $defaultSkinPath = $_SERVER['DOCUMENT_ROOT'] . "/assets/default.png";
+                // $defaultSkinPath = $_SERVER['DOCUMENT_ROOT'] . "/templates/bootstrap/assets/default.png";
+                $defaultSkinPath = __TD__ . "assets/default.png";
+                
                 $uploadDirectory = $_SERVER['DOCUMENT_ROOT'] . "/uploads/skins/";
                 $destinationFileName = $uploadDirectory . $user['uuid'] . ".png";
 
                 if (file_exists($defaultSkinPath) && copy($defaultSkinPath, $destinationFileName)) {
                     $home = "/home.php";
-                    header("Location: /home.php");
+                    header("Location: /home");
                     exit();
                 } else {
                     echo "Failed to copy the default skin to the user's directory.";
+                    echo $defaultSkinPath;
                     exit();
                 }
             } else {
@@ -78,6 +81,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
     }
 } else {
     echo "Form data incomplete.";
+    echo$defaultSkinPath;
     exit();
 }
 ?>
