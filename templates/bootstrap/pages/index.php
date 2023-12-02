@@ -25,10 +25,10 @@ ini_set('display_errors', true);
 
 
 <div class="container ">
-    <div class="form-check form-switch">
+    <!-- <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="toggleButton" checked>
         <label class="form-check-label" for="toggleButton">Toggle Dark Mode</label>
-</div>
+</div> -->
 </div>   
     <div class="container rounded mt-5 position-absolute top-50 start-50 translate-middle">
     <div class="row">
