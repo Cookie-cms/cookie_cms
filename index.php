@@ -55,7 +55,6 @@ define('__JS__', __TD__ . 'js/');
 define('__AS__', __TD__ . 'assets/');
 define('__INT__', __TD__ . 'inc/');
 
-if (!file_exists($configFile)) {
     if (file_exists($templatePath)) {
         include __TD__ . 'inc/header.php';
         include $templatePath;
@@ -64,5 +63,4 @@ if (!file_exists($configFile)) {
     } else {
         echo '404 - Page Not Found';
     }
-}
 ?>
