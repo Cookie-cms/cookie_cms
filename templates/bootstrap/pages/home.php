@@ -12,8 +12,6 @@ session_start();
 require __CF__ . 'staticinfo.php';
 require_once __CD__ . 'home/main.php';
 // require_once __RD__ . '/index.php';
-echo "__TD__ Path: " . __TDS__ . "<br>";
-
 ?>
     <!DOCTYPE html>
     <html>
