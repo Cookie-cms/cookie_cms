@@ -7,6 +7,7 @@
 // require("core/configs/config.inc.php")
 // require_once("core");
 global $generatorUsernameSetting; // Access the variable from the global scope
+require __CF__ . 'staticinfo.php';
 
 // Use $generatorUsernameSetting in your template
 

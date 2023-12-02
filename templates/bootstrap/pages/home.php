@@ -25,7 +25,6 @@ require_once __CD__ . 'home/main.php';
     </head>
     <body>
     <!-- <div id="navbarContainer"></div> -->
-    <link rel="stylesheet" href="css/main.css">
 <div class="container mt-3">
     <!-- <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="toggleButton" checked>

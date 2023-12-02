@@ -15,7 +15,7 @@ $perm = $result['perm'];
 // echo "UUID: $uuid. Permission level: $perm.";
 
 if (isset($_POST['new_username']) && !empty($_POST['new_username'])) {
-    $new_username = trim(filter_var($_POST['new_username'], FILTER_SANITIZE_STRING));
+    $new_username = trim(filter_var($_POST['new_username']));
 
     // echo "New username: $new_username.";
 
@@ -75,4 +75,4 @@ if (isset($_FILES['new_skin']) && !empty($_FILES['new_skin']['name'])) {
   }
 }
 
-header("Location: home.php");
+header("Location: /home");
