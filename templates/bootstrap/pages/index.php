@@ -36,7 +36,6 @@ require __CF__ . 'staticinfo.php';
 </div> -->
 </div>   
     <div class="container rounded mt-5 position-absolute top-50 start-50 translate-middle">
-    
     <div class="row">
         <div class="col-md-6">
             <h3>Login</h3>
