@@ -2,7 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
 
 try {
-    $sessionUUID = $_SESSION['uuid'];
+    // $sessionUUID = $_SESSION['uuid'];
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE uuid = :uuid");
     $stmt->bindParam(':uuid', $sessionUUID);

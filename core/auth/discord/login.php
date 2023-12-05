@@ -1,14 +1,35 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', true);
-require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
+<?php 
+session_start(); 
+require $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/define.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/core/config/configs.inc.php";
 
-
-if ($registertype === 2) {
-    header("Location: /error?e=2");
+if (!isset($_SESSION['user_data']['id'])) {
+    header("Location: oauth2_page.php");
+    exit();
 }
+
+$dsid = $_SESSION['user_data']['id'];
+
+try {
+    $stmt = $conn->prepare("SELECT id, uuid FROM users WHERE dsid = :dsid");
+    $stmt->bindParam(':dsid', $dsid);
+    $stmt->execute();
+    
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($user) {
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['uuid'] = $user['uuid'];
+        header("Location: /home");
+        exit();
+    } else {
+        header("Location: /registerds");
+    }
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+$dsid = $_SESSION['user_data']['id'];
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -44,10 +65,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
             echo "The username is taken, please choose another.";
             exit();
         } else {
-            $stmt = $conn->prepare("INSERT INTO users (uuid, username, password) VALUES (:uuid, :username, :pass)");
+            $stmt = $conn->prepare("INSERT INTO users (uuid, username, password, dsid) VALUES (:uuid, :username, :pass, :dsid)");
             $stmt->bindParam(':uuid', $uuid);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':pass', $hashed_password);
+            $stmt->bindParam(':dsid', $dsid);
+
             $stmt->execute();
 
             $user = [
@@ -90,4 +113,5 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
     echo$defaultSkinPath;
     exit();
 }
+
 ?>

@@ -12,6 +12,8 @@ ini_set('display_errors', true);
 // require __CF__ . 'staticinfo.php';
 require_once __CD__ . 'admin/verify.php';
 require_once __CD__ . 'admin/users.php';
+require __CF__ . 'staticinfo.php';
+
 // $users = include 'users.php';
 // require_once __RD__ . '/index.php';
 ?>
@@ -45,8 +47,8 @@ require_once __CD__ . 'admin/users.php';
                 <div class="col-md-4 border-right">
                 </div>
                 <!-- <div class="col-md-8 w-50"> -->
-                <input type="text" class="form-control" id="searchInput" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Search by ID or username" style="width: 300px; margin-bottom: 10px;">  
-                <div style="height: 300px; overflow-y: auto;">  
+                <input type="text" class="form-control" id="searchInput" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Search by ID or username" style="width: 300px; margin-bottom: 10px;">                
+                <div style="height: 600px; overflow-y: auto;" class="rounded-4">  
                 <table id="userslist" class="table">          
                         <thead>
                             <tr>
@@ -91,10 +93,18 @@ require_once __CD__ . 'admin/users.php';
         </div>
         <script>
     $(document).ready(function() {
-        $('#searchInput').on('keyup', function() {
-            var value = $(this).val().toLowerCase();
-            $('.user-row').filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        $('#searchInput').on('input', function() {
+            var searchText = $(this).val().toLowerCase();
+
+            $('#userslist tbody tr').each(function() {
+                var id = $(this).find('td:nth-child(1)').text().toLowerCase(); // Index of ID column (change as per your table)
+                var username = $(this).find('td:nth-child(2)').text().toLowerCase(); // Index of Username column (change as per your table)
+
+                if (id.includes(searchText) || username.includes(searchText)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
             });
         });
     });

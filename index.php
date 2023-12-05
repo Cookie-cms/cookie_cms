@@ -1,6 +1,8 @@
 <?php
-// error_reporting(E_ALL);
-// ini_set('display_errors', true);
+error_reporting(E_ALL);
+ini_set('display_errors', true);
+
+session_start();
 
 $configFile = 'core/configs/config.inc.php';
 if (!file_exists($configFile)) {
@@ -27,6 +29,61 @@ $requestUri = $_SERVER['REQUEST_URI'];
 $uriSegments = explode('/', trim($requestUri, '/'));
 $page = isset($uriSegments[0]) && $uriSegments[0] !== '' ? $uriSegments[0] : 'index';
 
+if (isset($_GET['code'])) {
+    // Получение кода авторизации от Discord
+
+    // Обработка авторизации и получение информации о пользователе (подставьте свои данные)
+    $client_id = '1181148727826722816';
+    $client_secret = 'S7Gbg79jiIgrgDhwprdiz7pBwen4aeVF';
+    $redirect_uri = 'http://192.168.1.17/'; // Укажите ваш редирект URI
+
+    // Запрос на обмен кода авторизации на токен доступа
+    $code = $_GET['code'];
+    $token_url = 'https://discord.com/api/oauth2/token';
+
+    $data = array(
+        'client_id' => $client_id,
+        'client_secret' => $client_secret,
+        'grant_type' => 'authorization_code',
+        'code' => $code,
+        'redirect_uri' => $redirect_uri,
+    );
+
+    $options = array(
+        'http' => array(
+            'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $response = file_get_contents($token_url, false, $context);
+    $token_data = json_decode($response, true);
+
+    // Получение информации о пользователе из Discord API
+    $access_token = $token_data['access_token'];
+
+    // Получение информации о пользователе
+    $user_url = 'https://discord.com/api/users/@me';
+
+    $user_headers = array(
+        'Authorization: Bearer ' . $access_token,
+    );
+
+    $user_context = stream_context_create(array(
+        'http' => array(
+            'header' => $user_headers,
+        ),
+    ));
+
+    $user_response = file_get_contents($user_url, false, $user_context);
+    $user_data = json_decode($user_response, true);
+
+    // Передача информации в другой файл (например, process_user.php)
+    $_SESSION['user_data'] = $user_data;
+    header('Location: /core/auth/discord/login.php');
+}
 
 $templatePath = __DIR__ . "/templates/{$template}/pages/{$page}.php";
 $corePagePath = __DIR__ . "/core/{$page}/main.php";

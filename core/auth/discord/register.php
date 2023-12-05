@@ -1,14 +1,41 @@
 <?php
+session_start(); 
 error_reporting(E_ALL);
 ini_set('display_errors', true);
-require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/define.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/core/config/configs.inc.php";
 
-
-if ($registertype === 2) {
-    header("Location: /error?e=2");
+$dsid = $_SESSION['user_data']['id'];
+if ($registertype === 0) {
+    header("Location: /");
+        exit();
+        break;
+} elseif ($registertype === 1) {
+    break;
+} elseif ($registertype === 4) {
+    header("Location: /error?e=4");
+    exit();
+} else {
+    echo "Переменная \$registertype не равна 0, 1, 2, 3 или 4";
 }
+
+if ($registertype === 3) {
+    $dsid = $_SESSION['user_data']['id'];
+    
+    // Подготовленный запрос для проверки наличия пользователя в таблице whitelist
+    $stmt = $conn->prepare("SELECT * FROM whitelist WHERE id = :dsid");
+    $stmt->bindParam(':dsid', $dsid);
+    $stmt->execute();
+
+    if ($stmt->rowCount() === 0) {
+        // Если пользователь не находится в whitelist, перенаправляем на страницу с сообщением
+        header("Location: /error?e=3");
+        exit();
+    }
+}
+
+
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -44,10 +71,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
             echo "The username is taken, please choose another.";
             exit();
         } else {
-            $stmt = $conn->prepare("INSERT INTO users (uuid, username, password) VALUES (:uuid, :username, :pass)");
+            $stmt = $conn->prepare("INSERT INTO users (uuid, username, password, dsid) VALUES (:uuid, :username, :pass, :dsid)");
             $stmt->bindParam(':uuid', $uuid);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':pass', $hashed_password);
+            $stmt->bindParam(':dsid', $dsid);
+
             $stmt->execute();
 
             $user = [
@@ -56,7 +85,6 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
             ];
 
             if ($user) {
-                session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['uuid'] = $user['uuid'];
 
@@ -90,4 +118,3 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['re_p
     echo$defaultSkinPath;
     exit();
 }
-?>

@@ -1,15 +1,24 @@
 <?php
 
-// error_reporting(E_ALL);  
-// ini_set('display_errors', true);
+error_reporting(E_ALL);  
+ini_set('display_errors', true);
 // include 'inc/header.php';
-
+// session_start();
 // require("core/configs/config.inc.php")
 // require_once("core");
 global $generatorUsernameSetting; // Access the variable from the global scope
 require __CF__ . 'staticinfo.php';
-
+require_once __CD__ . 'register/info.php';
+$avatarUrl = getUserAvatarUrl();
+// echo 'User Avatar URL: ' . $avatarUrl;
 // Use $generatorUsernameSetting in your template
+if (!isset($_SESSION['user_data'])) {
+    // Если данных нет, перенаправляем пользователя на страницу авторизации Discord
+    header('Location: https://discord.com/api/oauth2/authorize?client_id=1181148727826722816&response_type=code&redirect_uri=http%3A%2F%2F192.168.1.17%2F&scope=identify');
+    exit(); // Обязательно завершаем выполнение скрипта после перенаправления
+}
+$usernameds = getusernameds();
+
 
 ?>
 
@@ -34,47 +43,29 @@ require __CF__ . 'staticinfo.php';
         <input class="form-check-input" type="checkbox" id="toggleButton" checked>
         <label class="form-check-label" for="toggleButton">Toggle Dark Mode</label>
 </div> -->
-</div>   
-    <div class="container rounded mt-5 position-absolute top-50 start-50 translate-middle">
-    
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Login</h3>
-            <form method="post" action="<?php echo __RD__; ?>core/auth/login.php">
-                <div class="form-group">
-                    <label for="loginUsername">Username:</label>
-                    <input type="text" class="form-control mt-3" id="loginUsername" name="username" placeholder="Username" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password:</label>
-                    <input type="password" class="form-control mt-3" id="loginPassword" name="password" placeholder="Password" required>
-                </div>
-                <div class="form-check mt-3">
-                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Remember me
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Login</button>
-            </form>
-        </div>
-        <div class="col-md-6">
+</div>  
+<!-- <div class="col-md-4 border-right"> -->
+                <!-- </div>  -->
+    <cat class="rounded position-absolute top-50 start-50 translate-middle">
+        
+        <div class="col-md-5">
+        <img class="position-absolute rounded-circle start-50 translate-middle" src="<?=$avatarUrl?>" height="94" />
             <h3>Register</h3>
-                <form method="post" action="<?php echo __RD__; ?>core/auth/register.php">
+                <form method="post" action="<?php echo __RD__; ?>core/auth/discord/register.php">
                     <div class="form-group">
                         <label for="registerUsername">Username:</label>
-                        <input type="text" class="form-control mt-3" id="registerUsername" name="username" placeholder="Username">
+                        <input type="text" class="form-control mt-3 " style="width: 450px;" id="registerUsername" name="username" value="<?=$usernameds?>" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="registerPassword">Password:</label>
-                        <input type="password" class="form-control mt-3" id="registerPassword" name="password" placeholder="Password">
+                        <input type="password" class="form-control mt-3" style="width: 450px" id="registerPassword" name="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="registerrePassword">Re-enter Password:</label>
-                        <input type="password" class="form-control mt-3" id="registerrePassword" name="re_password" placeholder="Password">
+                        <input type="password" class="form-control mt-3" style="width: 450px;" id="registerrePassword" name="re_password" placeholder="Password">
                     </div>
                     <div class="form-check mt-3">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                        <input class="form-check-input" type="checkbox"  value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault">
                             Accept terms
                         </label>
@@ -83,8 +74,14 @@ require __CF__ . 'staticinfo.php';
                     <button type="submit" class="btn btn-primary mt-3">Register</button>
                 </form>
             </div>
+            <div class="container">
+            <div class="position-absolute top-0 end-0">
+                <div style="background-color: white;" width="280px" height="420"></div>
+            </div>
+            </div>
+             
 
-    </div>
+    </cat>
     <script>
     // Accessing the PHP variable value in JavaScript
     var generatorUsernameSetting = <?php echo json_encode($generatorUsernameSetting); ?>;
