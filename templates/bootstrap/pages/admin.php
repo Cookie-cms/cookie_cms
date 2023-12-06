@@ -52,6 +52,7 @@ require_once __CD__ . 'admin/users.php';
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">username</th>
+                                <th scope="col">dsid</th>
                                 <th scope="col">uuid</th>
                                 <th scope="col">perm</th>
                             </tr>
@@ -61,6 +62,7 @@ require_once __CD__ . 'admin/users.php';
                                 <tr class="user-row">
                                     <td><?= $user['id'] ?></td>
                                     <td><?= $user['username'] ?></td>
+                                    <td><a href="https://discord.com/users/<?= $user['dsid'] ?>"><?= $user['dsid'] ?></a></td>
                                     <td><?= $user['uuid'] ?></td>
                                     <td><?php
                                         switch ($user['perm']) {

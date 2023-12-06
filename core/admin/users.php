@@ -5,7 +5,7 @@ try {
     // Assuming you have an active database connection stored in $conn
 
     // Prepare and execute the query to fetch users
-    $stmt = $conn->query("SELECT id, username, uuid, perm FROM users");
+    $stmt = $conn->query("SELECT id,username, dsid, uuid, perm FROM users");
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Return the users array

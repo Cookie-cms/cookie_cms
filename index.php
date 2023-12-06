@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
 
 session_start();
 
@@ -30,20 +30,19 @@ $uriSegments = explode('/', trim($requestUri, '/'));
 $page = isset($uriSegments[0]) && $uriSegments[0] !== '' ? $uriSegments[0] : 'index';
 
 if (isset($_GET['code'])) {
-
-    $client_id = '';
-    $client_secret = '';
-    $redirect_uri = '';
+    $clientId = $discordoauth['client_id'];
+    $redirectUri = $discordoauth['redirect_url'];
+    $client_secret = $discordoauth['secret_id'];
 
     $code = $_GET['code'];
     $token_url = 'https://discord.com/api/oauth2/token';
 
     $data = array(
-        'client_id' => $client_id,
+        'client_id' => $clientId, // Change to $clientId
         'client_secret' => $client_secret,
         'grant_type' => 'authorization_code',
         'code' => $code,
-        'redirect_uri' => $redirect_uri,
+        'redirect_uri' => $redirectUri, // Change to $redirectUri
     );
 
     $options = array(
@@ -58,10 +57,9 @@ if (isset($_GET['code'])) {
     $response = file_get_contents($token_url, false, $context);
     $token_data = json_decode($response, true);
 
-    // Получение информации о пользователе из Discord API
+    // Get user information from Discord API
     $access_token = $token_data['access_token'];
 
-    // Получение информации о пользователе
     $user_url = 'https://discord.com/api/users/@me';
 
     $user_headers = array(
@@ -84,11 +82,10 @@ if (isset($_GET['code'])) {
 $templatePath = __DIR__ . "/templates/{$template}/pages/{$page}.php";
 $corePagePath = __DIR__ . "/core/{$page}/main.php";
 
-if (in_array('logout', $uriSegments)) {
-    $corePagePath = $_SERVER['DOCUMENT_ROOT'] . '/core/auth/logout.php';
-} else {
-    $corePagePath = __DIR__ . "/core/{$page}/main.php";
-}
+
+
+// $corePagePath = __DIR__ . "/core/{$page}/main.php";
+
 if ($debugSetting) {
     echo "Template: {$template}<br>"; // Debug: Check the current template
     echo "Template Path: {$templatePath}<br>"; // Debug: Check the path to the page
@@ -110,6 +107,12 @@ define('__JS__', __TD__ . 'js/');
 define('__AS__', __TD__ . 'assets/');
 define('__INT__', __TD__ . 'inc/');
 
+
+
+if (isset($redirects[$urlPath])) {
+    header('Location: ' . $redirects[$urlPath]);
+    exit();
+} else {
     if (file_exists($templatePath)) {
         include __TD__ . 'inc/header.php';
         include $templatePath;
@@ -118,4 +121,5 @@ define('__INT__', __TD__ . 'inc/');
     } else {
         echo '404 - Page Not Found';
     }
+}
 ?>

@@ -55,9 +55,9 @@ if ($step == 1) {
 \$port = {$port};
 
 \$registertype = "{$type}"; 
-\$minecraftsys = $presetup ? 'true' : 'false';
+\$minecraftsys = $presetup ?;
 \$capetype = "{$capetype}";
-\$template = "{$capetype}";
+\$template = "{$template}";
 
 
 \$modules = [];
@@ -67,6 +67,16 @@ if ($step == 1) {
     'generatorusername' => false
 ];
 
+\$discordsys = 0;
+\$discordoauth = [
+    'client_id' => "{$clientid}",
+    'secret_id' => "{$secretid}",
+    'scopes' => '{$scopes}',
+    'redirect_url' => "{$redirecturl}",
+    'bot' => "",
+    'guild_id' => 0,
+    'role' => 0
+];
 ?>
 CONFIG;
 

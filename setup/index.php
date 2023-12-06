@@ -2,20 +2,20 @@
 
 $configFile = '../core/configs/config.inc.php';
 
-if (file_exists($configFile)) {
+// if (file_exists($configFile)) {
 
-    try {
-      include $configFile; 
-    } catch (Exception $e) {
-      // Handle error
-    }
+//     try {
+//       include $configFile; 
+//     } catch (Exception $e) {
+//       // Handle error
+//     }
   
-    if (!$development) {
-      header('Location: /');
-      exit;
-    }
+//     // if (!$development) {
+//     //   header('Location: /');
+//     //   exit;
+//     // }
   
-  }
+//   }
 $osInfo = php_uname('s'); // Retrieve OS information
 
 if (stripos($osInfo, 'Darwin') !== false || stripos($osInfo, 'Windows') !== false) {
@@ -105,14 +105,38 @@ $step = isset($_GET['s']) ? $_GET['s'] : 1;
                     <option value="boostrap">Boostrap</option>
                     <option value="terminall">Terminall</option>
                     <option value="boom">Boom</option>
-                </select>
+                </select><br><br>
+            <label for="checkbox">Discord oath2:</label> 
+            <input type="checkbox" id="checkbox"><br><br>
+
+            <label for="info">Client id:</label>
+            <input type="text" id="clientid" class="controlled-input" disabled><br><br>
+
+            <label for="info">Secret id:</label>
+            <input type="text" id="secretid" class="controlled-input" disabled><br><br>
+
+
+            <label for="info">Scopes:</label>
+            <input type="text" id="scopes" value="identify" class="controlled-input" disabled><br><br>
+
+            <label for="info">Redirect url: </label>
+            <input type="text" id="redirecturl" value="EXAMPLE domain.com" class="controlled-input" disabled><br><br>
+
+            <label>oath2:</label>
+                <select name="discord" id="oauth2" disabled><br><br>
+                    <option value="login">Login</option>
+                    <option value="login_add">Login+add to server </option>
+                    <option value="Login_add_role">Login+add to server+ add role</option>
+                </select><br><br>
             <!-- <input type="hidden" name="setup_step" value="1"> -->
             <button type="submit" class="btn btn-primary">Next</button>
         </form>
         <?php elseif ($step == 2): ?>
-            <form action="process_setup.php" method="post">
-                <input type="text" disabled>
-            </form>
+                <label for="checkbox">Allow Input:</label>
+                <input type="checkbox" id="checkbox">
+                <br><br>
+                <label for="info">Information:</label>
+                <input type="text" id="info" disabled>
         <?php elseif ($step == 3): ?>
             <div class="container mt-3">
         <div class="position-relative m-4">
@@ -157,6 +181,19 @@ $step = isset($_GET['s']) ? $_GET['s'] : 1;
             echo '<div class="alert alert-danger" role="alert">' . $_GET['alertdanger'] . '</div>';
         }
         ?>
+        <script>
+        const checkbox = document.getElementById('checkbox');
+        const controlledInputs = document.querySelectorAll('.controlled-input');
+        
+        checkbox.addEventListener('change', function() {
+            controlledInputs.forEach(function(input) {
+                input.disabled = !checkbox.checked;
+                if (!checkbox.checked) {
+                    input.value = ''; // Clear inputs if checkbox is unchecked
+                }
+            });
+        });
+    </script>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
