@@ -27,8 +27,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
         // Debug: Output fetched user data
-        echo "Fetched User Data: ";
-        var_dump($user); // 
+        // echo "Fetched User Data: ";
+        // var_dump($user); // 
 
         if ($user && password_verify($password, $user['password']) && $user['username'] === $username) {
             var_dump($user); // Placed here to dump the user data

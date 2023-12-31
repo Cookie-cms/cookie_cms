@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);  
-ini_set('display_errors', true);
+// error_reporting(E_ALL);  
+// ini_set('display_errors', true);
 // include 'inc/header.php';
 // session_start();
 // require("core/configs/config.inc.php")

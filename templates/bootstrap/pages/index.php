@@ -1,13 +1,15 @@
 <?php
 
-// error_reporting(E_ALL);  
-// ini_set('display_errors', true);
+error_reporting(E_ALL);  
+ini_set('display_errors', true);
 // include 'inc/header.php';
 
 // require("core/configs/config.inc.php")
 // require_once("core");
+
 global $generatorUsernameSetting; // Access the variable from the global scope
 require __CF__ . 'staticinfo.php';
+// require("define.php");
 
 // Use $generatorUsernameSetting in your template
 

@@ -1,20 +1,15 @@
 <?php
-try {
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
+// require_once $_SERVER['DOCUMENT_ROOT'] . "/define.php";
 
-    // Assuming you have an active database connection stored in $conn
+require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
 
-    // Prepare and execute the query to fetch users
-    $stmt = $conn->query("SELECT id,username, dsid, uuid, perm FROM users");
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Assuming you have an active database connection stored in $conn
 
-    // Return the users array
-    return;
-    
-} catch (PDOException $e) {
-    // Handle any potential database errors here
-    // Log or display an error message
-    // Returning an empty array in case of an error
-    return [];
-}
+// Prepare and execute the query to fetch users
+$stmt = $conn->query("SELECT id,username, dsid, uuid, perm FROM users");
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Return the users array
+return;
+
 ?>

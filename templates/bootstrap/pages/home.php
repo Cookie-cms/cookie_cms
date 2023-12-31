@@ -98,7 +98,7 @@ require_once __CD__ . 'home/main.php';
         skinViewer.loadSkin("<?php echo __RD__; ?>uploads/skins/<?php echo $_SESSION['uuid']; ?>.png");
     
         // Load a cape
-        skinViewer.loadCape("uploads/capes/<?php echo $_SESSION['uuid']; ?>.png");
+        skinViewer.loadCape("/uploads/capes/<?php echo $_SESSION['uuid']; ?>.png");
     
         // skinViewer.loadSkin("<?php echo __RD__ ?>uploads/skins/Default.png");
 

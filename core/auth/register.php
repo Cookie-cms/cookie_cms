@@ -1,6 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
+require_once $_SERVER['DOCUMENT_ROOT'] . "/define.php";
+
 require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/mysql.php";
 function validate($data){
     $data = trim($data);

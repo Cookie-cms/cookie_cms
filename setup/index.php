@@ -101,7 +101,7 @@ $step = isset($_GET['s']) ? $_GET['s'] : 1;
             <input type="number" id="capetype" name="capetype" min="0" max="2" value="0"/><br><br>
 
             <label>Themes:</label>
-                <select name="theme" id="themeselector" disabled><br><br>
+                <select name="theme" id="themeselector" disabled value="boostrap"><br><br>
                     <option value="boostrap">Boostrap</option>
                     <option value="terminall">Terminall</option>
                     <option value="boom">Boom</option>

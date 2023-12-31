@@ -17,7 +17,8 @@ if ($step == 1) {
         $database = $_POST["database"];
         $type = $_POST["typeregister"];
         $capetype = $_POST["capetype"];
-        $template = $_POST["tamplate"];
+        // $template = $_POST["tamplate"];
+        $template ="bootstrap";
         $presetup = true;
         $hwid = isset($_POST["hwid"]) ? $_POST["hwid"] : 0;
 
@@ -55,7 +56,7 @@ if ($step == 1) {
 \$port = {$port};
 
 \$registertype = "{$type}"; 
-\$minecraftsys = $presetup ?;
+\$minecraftsys = $presetup;
 \$capetype = "{$capetype}";
 \$template = "{$template}";
 
