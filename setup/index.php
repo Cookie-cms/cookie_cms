@@ -106,7 +106,7 @@ $step = isset($_GET['s']) ? $_GET['s'] : 1;
                     <option value="terminall">Terminall</option>
                     <option value="boom">Boom</option>
                 </select><br><br>
-            <label for="checkbox">Discord oath2:</label> 
+            <label for="checkbox">Discord oauth2:</label> 
             <input type="checkbox" id="checkbox"><br><br>
 
             <label for="info">Client id:</label>
@@ -122,7 +122,7 @@ $step = isset($_GET['s']) ? $_GET['s'] : 1;
             <label for="info">Redirect url: </label>
             <input type="text" id="redirecturl" value="EXAMPLE domain.com" class="controlled-input" disabled><br><br>
 
-            <label>oath2:</label>
+            <label>oauth2:</label>
                 <select name="discord" id="oauth2" disabled><br><br>
                     <option value="login">Login</option>
                     <option value="login_add">Login+add to server </option>
