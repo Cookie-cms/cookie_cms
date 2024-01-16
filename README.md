@@ -18,6 +18,15 @@
 chmod -R 777 /sitedir/
 ``
 
+# errors codes
+| code  | status |
+| ------------- | ------------- |
+| 1200  | Accepted all okay  |
+| 1201 | Bad token  |
+<!-- | 1202 | :x: |
+| 1203 | :x: |-->
+
+
 <!-- #### Question 2 -->
 
 <!-- Answer 2 -->
