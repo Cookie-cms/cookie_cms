@@ -1,8 +1,111 @@
 <?php
-/*   __________________________________________________
-    |  Obfuscated by YAK Pro - Php Obfuscator  2.0.14  |
-    |              on 2023-12-31 15:57:40              |
-    |    GitHub: https://github.com/pk-fr/yakpro-po    |
-    |__________________________________________________|
-*/
-goto PgZUcbks01k7e17; WJss39X0FzrhI1p: if (isset($jsonResponse["\144\x65\164\x61\151\154"]) && $jsonResponse["\144\145\x74\x61\x69\154"] === "\x4e\x6f\40\x72\145\x73\x75\154\x74\163\x20\x66\x6f\165\156\144\x20\x66\x6f\x72\40\164\x68\x65\x20\x70\x72\157\166\x69\144\x65\144\40\164\157\153\x65\156") { goto OpCbyQQmq_QVr0M; } goto cbG0VwFwW9VfWXP; S3LvLMmEgR1T_ky: o1pefPsGi2lKAj2: goto NY6511UR9iX8r7_; visctRluoiZcX_8: $templatePath = __DIR__ . "\x2f\164\145\x6d\x70\154\x61\x74\x65\163\x2f{$template}\x2f\x70\x61\x67\145\163\x2f{$page}\x2e\160\x68\x70"; goto OoC5ZjYJwY6XVxK; EDyDesa2xBKIzpl: goto QtG1OGQ_vbgHD6N; goto jvahGh_eVbqmaaY; Im0auR7MSmTxvwV: if (!($response === false)) { goto u6fFBfiRQGcOLgK; } goto FtSZi3DgNz1jKiv; FtSZi3DgNz1jKiv: header("\x4c\x6f\x63\141\x74\x69\x6f\156\72\x20\150\x74\164\160\163\72\57\57\x61\165\164\x68\x2e\143\x6f\146\146\145\145\144\x65\x76\56\x64\x65\166\57\x65\x72\162\157\x72\x5f\154\151\143"); goto K7I2rpWBbxYeg2P; HvTkhGPkoky1vNm: aT8B2hdtZsKdGNc(); goto KWtzoOKSd6x8n_G; PgZUcbks01k7e17: session_start(); goto EDXY7KlfINMynhP; XFWAuN1A_AIi3rS: $access_token = $token_data["\x61\143\x63\x65\163\163\x5f\x74\157\153\x65\156"]; goto oaE74yEgR5KyE56; y5B7eDXRfk5oQp8: mi9RTJdi0rPKi1v: goto XMB3pGwaxgDWEnC; Lko7fqgAL5hMwOO: echo "\64\60\x34\40\x2d\40\x50\x61\x67\x65\x20\116\157\164\40\x46\x6f\165\156\x64"; goto UlHLg56erZayCPD; Wxbn8ZnooDDJh2X: $page = isset($uriSegments[0]) && $uriSegments[0] !== '' ? $uriSegments[0] : "\x69\156\144\145\170"; goto IaPlSsP1hODSRtX; nbhefZwKUsbeELz: require_once "\144\145\146\151\x6e\145\x2e\x70\150\160"; goto PxrKAjMKjCMVtZR; fUMtEg0PpDAFHTa: exit; goto EDyDesa2xBKIzpl; Gp32BEXPJCpkQOq: $tokenFilePath = $_SERVER["\x44\117\103\125\115\x45\x4e\x54\137\122\x4f\x4f\x54"] . "\57\x63\157\162\145\x2f\x63\157\156\x66\151\x67\x73\x2f\x6c\151\143\145\156\163\x65\56\160\150\160"; goto tsmQtF19gI3KbdG; TjWaJYxfBsSkHbL: header("\114\157\143\x61\164\x69\x6f\x6e\72\x20\57\x63\x6f\162\x65\57\x61\165\x74\150\57\144\151\x73\x63\157\x72\x64\x2f\x6c\x6f\147\151\x6e\56\160\150\160"); goto yiVnsteZi_2ozP8; uShbuXVA0_OOY1h: if (!$debugSetting) { goto bCKk0qEUsmPRAUz; } goto eXcFPNRu6gFuQ2N; V3Xuj1a2sv_sVNF: $context = stream_context_create($options); goto PxNpbyVomHv6FHB; kcgBfxGX6KwQc0p: $_SESSION["\x75\x73\x65\x72\137\x64\x61\x74\x61"] = $user_data; goto TjWaJYxfBsSkHbL; cbKehJ8zpCAnek0: QtG1OGQ_vbgHD6N: goto BIlLiAJD5azseIG; Fh6O7x4Ztg9WieC: $domainip = NULL; goto nq_0sD4N3wbXFPG; PNoOX61aVC0jUMS: $user_context = stream_context_create(array("\x68\164\x74\x70" => array("\x68\145\141\144\x65\x72" => $user_headers))); goto l2ECw0CqFt715Qj; jiblRQ6fQAWrlYp: require_once $_SERVER["\104\x4f\x43\x55\x4d\105\116\124\137\122\117\117\124"] . "\x2f\x63\157\162\145\57\x69\x6e\143\x2f\164\145\x6d\160\154\141\x74\x65\x2e\160\x68\160"; goto RiSGxvlE6j45SfJ; EDXY7KlfINMynhP: $configFile = "\x63\157\162\145\x2f\x63\157\x6e\146\x69\147\163\x2f\x63\157\x6e\146\x69\147\x2e\151\156\143\x2e\x70\x68\160"; goto GjIFfgGmfSJx1oS; NOEUwBUAJSz87mZ: $user_headers = array("\101\x75\x74\x68\157\x72\x69\172\141\164\151\157\x6e\72\40\x42\x65\x61\x72\x65\162\40" . $access_token); goto PNoOX61aVC0jUMS; syLuv5hRYIJUK09: bCKk0qEUsmPRAUz: goto Hp1XU9fqjHGHYsM; rOS_fjNbp9G8URm: CzaiHxSJjLwMay6: goto OOEB5d1dmTtpItx; zooJk89pIknDBVG: include $templatePath; goto ibXZ9SBqjfhp6sd; b30U6KPiZPmkk8q: $jsonResponse = json_decode($response, true); goto P117abGqX9FrFE3; UGkHm4iYLL5S7pB: if (!($domainip === '')) { goto KiJxyUR6_5uc0Ps; } goto SLBGhULv0UiMSKN; tsmQtF19gI3KbdG: $token = file_get_contents($tokenFilePath); goto eP2dcB1wAcNzN5v; RiSGxvlE6j45SfJ: require_once $_SERVER["\x44\117\x43\x55\115\x45\116\x54\x5f\122\117\x4f\124"] . "\57\x63\157\x72\145\57\x63\x6f\156\146\x69\147\x73\57\x63\157\156\x66\151\147\x2e\151\156\143\56\160\150\160"; goto Cq_DyI0o4NgmYpV; a6HzCGlznnsqLqY: if (file_exists($corePagePath)) { goto PVx1GZr2Q9jUlul; } goto Lko7fqgAL5hMwOO; cTbLh28MDoYioK9: $options = array("\150\164\x74\x70" => array("\150\x65\x61\x64\145\x72" => "\103\x6f\x6e\164\145\x6e\164\x2d\124\x79\160\x65\x3a\x20\x61\160\160\x6c\x69\143\x61\x74\151\x6f\x6e\x2f\x78\x2d\x77\167\x77\x2d\146\x6f\162\155\x2d\165\x72\154\145\156\143\157\x64\145\x64\xd\12", "\155\145\164\x68\x6f\x64" => "\x50\x4f\x53\124", "\x63\x6f\x6e\x74\145\x6e\x74" => http_build_query($data))); goto V3Xuj1a2sv_sVNF; qjaQiigR9VuDGeI: $response = curl_exec($ch); goto Im0auR7MSmTxvwV; P117abGqX9FrFE3: $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); goto XPjKMpEsyiKYrwX; ibXZ9SBqjfhp6sd: goto yjPXcTBh2_VPrAe; goto T5MupfU3s03naPi; XPjKMpEsyiKYrwX: if ($httpCode === 502) { goto bVTNc1yvd6KTkw7; } goto WJss39X0FzrhI1p; T5MupfU3s03naPi: PVx1GZr2Q9jUlul: goto LqGQta0zBuJjSJQ; e4KjYi6T640qeQ6: header("\114\157\143\141\x74\151\x6f\x6e\72\40\150\x74\164\x70\x73\x3a\57\57\x61\165\164\150\56\x63\x6f\146\x66\x65\x65\x64\145\166\x2e\x64\145\x76\57\x65\x72\162\x6f\x72\137\164\157\x6b\145\156\137\x66\x69\x6c\x65"); goto Xm5vq7DKMY7qGEL; BIlLiAJD5azseIG: function AT8b2hdtzskDGNc() { header("\x4c\x6f\143\x61\x74\x69\x6f\x6e\x3a\40\150\x74\164\x70\163\x3a\x2f\x2f\141\165\164\150\x2e\143\x6f\x66\x66\145\x65\x64\x65\166\56\x64\x65\166\57\145\162\162\157\x72\x5f\162\x65\163\x75\154\164\x73"); exit; } goto u2vnswRvGRX65u4; OOEB5d1dmTtpItx: at8B2HdTZSkdgNc(); goto cbKehJ8zpCAnek0; SLBGhULv0UiMSKN: $domainip = NULL; goto o45zrLMSYxWioPc; pMp074s9nvlDzmi: $uriSegments = explode("\x2f", trim($requestUri, "\57")); goto Wxbn8ZnooDDJh2X; Cq_DyI0o4NgmYpV: goto t0uut_ddjt7bnBA; goto YeqNdtZyo6EKLxp; dT3qkF9UKv2t5l4: echo "\x43\x6f\x72\145\x20\x50\x61\x67\145\x20\120\141\x74\x68\x3a\x20{$corePagePath}\x3c\142\162\x3e"; goto QsEQDZJaGeaOMFi; LqGQta0zBuJjSJQ: include $corePagePath; goto wge070VrrVmxXIV; cbG0VwFwW9VfWXP: if (isset($jsonResponse["\141\143\143\x65\163\x73"]) && $jsonResponse["\141\143\x63\145\x73\x73"] === 201) { goto CzaiHxSJjLwMay6; } goto J9cFdU3N2Al5cve; u2vnswRvGRX65u4: if (!(isset($jsonResponse["\144\145\x74\141\151\x6c"]) && $jsonResponse["\144\x65\164\141\151\154"] === "\x49\156\166\141\x6c\151\144\40\x41\120\x49\40\101\120\120\40\x6b\145\x79\54\40\111\x74\163\40\x6e\157\x74\x20\x79\157\165\162\x20\x70\x72\x6f\x62\x6c\x65\x6d\x20\160\x6c\x73\40\143\157\x6e\x74\141\x63\164\40\167\151\164\150\40\157\x77\x6e\x65\x72")) { goto mi9RTJdi0rPKi1v; } goto nx8i3h7UH0e46mz; tlQqA5s2tN_FyaV: $user_data = json_decode($user_response, true); goto kcgBfxGX6KwQc0p; NY6511UR9iX8r7_: include __TD__ . "\151\x6e\143\x2f\x68\145\141\x64\145\162\56\160\150\x70"; goto zooJk89pIknDBVG; nq_0sD4N3wbXFPG: $domainip = isset($_SERVER["\x53\105\122\x56\x45\122\137\116\x41\115\x45"]) ? $_SERVER["\123\105\x52\x56\x45\x52\137\x4e\101\x4d\105"] : NULL; goto UGkHm4iYLL5S7pB; CW3mf8yd8c_Yss1: $clientId = $discordoauth["\x63\154\151\145\156\x74\x5f\151\x64"]; goto sko8lJV7XUTDDm0; DT7qHUR9rAOy2S3: curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_HTTPHEADER => ["\141\143\x63\x65\x70\x74\72\40\x61\x70\x70\x6c\151\x63\141\x74\151\157\x6e\x2f\x6a\x73\157\156", "\141\x70\151\x2d\x6b\145\171\72\x20" . $api_key]]); goto qjaQiigR9VuDGeI; J9cFdU3N2Al5cve: goto QtG1OGQ_vbgHD6N; goto QoZGjya53FydLhn; glOGqBQ7Xx8XklG: $client_secret = $discordoauth["\x73\x65\x63\162\x65\x74\137\x69\x64"]; goto dujnw1JKi9uFWfO; bW9qpCQfiEw5RJy: u6fFBfiRQGcOLgK: goto b30U6KPiZPmkk8q; K7I2rpWBbxYeg2P: exit; goto bW9qpCQfiEw5RJy; dujnw1JKi9uFWfO: $code = $_GET["\x63\x6f\x64\x65"]; goto sAL9Xjv2vCXZ1iq; yiVnsteZi_2ozP8: r4JzvYJ_gfduxJm: goto visctRluoiZcX_8; QoZGjya53FydLhn: bVTNc1yvd6KTkw7: goto fUMtEg0PpDAFHTa; fJP3oGwA93k2OJW: try { goto ggslG18JMLCKPtv; Q4MmlLqdMRz4ztr: $developmentSetting = $DEBUG["\x64\x65\x76\145\x6c\157\160\155\x65\156\x74"]; goto Qw3C7NGtiE0LVB2; jglrMBfgQTrxq8_: $debugSetting = $DEBUG["\144\x65\142\x75\147"]; goto Q4MmlLqdMRz4ztr; ggslG18JMLCKPtv: global $debugSetting, $developmentSetting, $generatorUsernameSetting; goto jglrMBfgQTrxq8_; Qw3C7NGtiE0LVB2: $generatorUsernameSetting = $DEBUG["\x67\145\156\145\162\x61\164\x6f\x72\x75\163\x65\162\156\141\155\x65"]; goto tVS7AFt3cX974Pu; tVS7AFt3cX974Pu: } catch (Exception $e) { echo "\x45\170\x63\145\160\x74\151\157\x6e\40\143\141\165\147\x68\164\72\40" . $e->getMessage(); } goto nbhefZwKUsbeELz; Xm5vq7DKMY7qGEL: exit; goto mhXClHc9hZQeGFw; tEjO1eVKKzRHnkP: t0uut_ddjt7bnBA: goto Gp32BEXPJCpkQOq; LRHvrg66i7Q5G53: $data = array("\x63\x6c\151\145\x6e\x74\x5f\x69\x64" => $clientId, "\x63\154\151\145\x6e\x74\137\163\145\143\162\145\164" => $client_secret, "\x67\162\141\156\x74\137\x74\171\x70\x65" => "\141\165\x74\x68\x6f\x72\151\172\141\x74\151\x6f\x6e\137\x63\x6f\144\145", "\x63\157\144\145" => $code, "\162\145\144\x69\x72\145\143\x74\137\x75\x72\x69" => $redirectUri); goto cTbLh28MDoYioK9; sko8lJV7XUTDDm0: $redirectUri = $discordoauth["\162\145\x64\151\162\145\x63\x74\137\165\162\154"]; goto glOGqBQ7Xx8XklG; jvahGh_eVbqmaaY: OpCbyQQmq_QVr0M: goto HvTkhGPkoky1vNm; gzFvhm7rYTOqdDk: $ch = curl_init($url); goto ik4DWFW7uCRw170; eP2dcB1wAcNzN5v: if (!($token === false)) { goto PSfalXyTm2V3NsD; } goto e4KjYi6T640qeQ6; GjIFfgGmfSJx1oS: if (!file_exists($configFile)) { goto Wcwl9TBjrSrI6nt; } goto jiblRQ6fQAWrlYp; KWtzoOKSd6x8n_G: goto QtG1OGQ_vbgHD6N; goto rOS_fjNbp9G8URm; nx8i3h7UH0e46mz: exit; goto y5B7eDXRfk5oQp8; IaPlSsP1hODSRtX: if (!isset($_GET["\x63\x6f\144\x65"])) { goto r4JzvYJ_gfduxJm; } goto CW3mf8yd8c_Yss1; v1U7ZUYutTCz81p: header("\114\x6f\143\141\164\x69\157\156\72\40\57\x73\145\164\x75\160\x2f"); goto tEjO1eVKKzRHnkP; PxNpbyVomHv6FHB: $response = file_get_contents($token_url, false, $context); goto XX8MY5ZrK6hmJ5j; oaE74yEgR5KyE56: $user_url = "\150\164\x74\160\163\x3a\x2f\x2f\x64\151\163\143\157\162\144\x2e\143\157\x6d\57\x61\x70\151\57\x75\x73\x65\x72\x73\x2f\100\155\x65"; goto NOEUwBUAJSz87mZ; sAL9Xjv2vCXZ1iq: $token_url = "\x68\x74\164\160\x73\72\x2f\x2f\x64\x69\163\x63\x6f\162\x64\x2e\143\157\155\57\x61\x70\x69\x2f\157\141\x75\164\x68\62\57\x74\157\153\145\156"; goto LRHvrg66i7Q5G53; izuNTUcDqnmmqZp: echo "\x54\x65\155\160\154\x61\x74\145\x20\120\x61\164\x68\72\x20{$templatePath}\74\142\162\x3e"; goto dT3qkF9UKv2t5l4; QsEQDZJaGeaOMFi: echo "\122\x65\x71\165\145\163\x74\x65\144\40\125\x52\x49\x3a\40{$requestUri}\74\x62\162\76"; goto syLuv5hRYIJUK09; YeqNdtZyo6EKLxp: Wcwl9TBjrSrI6nt: goto v1U7ZUYutTCz81p; PxrKAjMKjCMVtZR: $requestUri = $_SERVER["\122\105\x51\125\105\123\x54\137\125\x52\111"]; goto pMp074s9nvlDzmi; mhXClHc9hZQeGFw: PSfalXyTm2V3NsD: goto QoneJIqo_mjJYTa; Hp1XU9fqjHGHYsM: if (file_exists($templatePath)) { goto o1pefPsGi2lKAj2; } goto a6HzCGlznnsqLqY; XX8MY5ZrK6hmJ5j: $token_data = json_decode($response, true); goto XFWAuN1A_AIi3rS; eXcFPNRu6gFuQ2N: echo "\x54\145\x6d\x70\x6c\141\164\x65\72\x20{$template}\x3c\142\x72\x3e"; goto izuNTUcDqnmmqZp; l2ECw0CqFt715Qj: $user_response = file_get_contents($user_url, false, $user_context); goto tlQqA5s2tN_FyaV; OoC5ZjYJwY6XVxK: $corePagePath = __DIR__ . "\x2f\143\157\162\145\57{$page}\57\x6d\141\151\156\56\x70\150\160"; goto uShbuXVA0_OOY1h; QoneJIqo_mjJYTa: $ip = $_SERVER["\x53\105\x52\x56\x45\x52\x5f\101\x44\104\122"]; goto Fh6O7x4Ztg9WieC; o45zrLMSYxWioPc: KiJxyUR6_5uc0Ps: goto awPuMZREzm9Dghq; XMB3pGwaxgDWEnC: curl_close($ch); goto fJP3oGwA93k2OJW; awPuMZREzm9Dghq: $url = "\150\x74\164\160\x73\x3a\57\x2f\x61\x75\x74\150\56\143\x6f\x66\x66\x65\x65\144\x65\x76\56\x64\145\x76\57\x73\151\164\x65\77" . http_build_query(["\x74\157\153\145\x6e" => $token, "\x69\x70" => $ip, "\x64\x6f\155\x61\x69\156" => $domainip]); goto gzFvhm7rYTOqdDk; UlHLg56erZayCPD: goto yjPXcTBh2_VPrAe; goto S3LvLMmEgR1T_ky; ik4DWFW7uCRw170: $api_key = "\150\x67\x6a\x6b\x6f\x66\x69\162\x72\x6b\x6a\x67\x66\x69\x72\x66\147\145\x6f\160\x72\x67\152\x66\145\161\x72\64\x67\x6a\133\x6f\151\152\x71\133\63\x69\x72\x6a\164\x67\161\133\60\63\60\x33\60\x33\60\x5d\x5d\135"; goto DT7qHUR9rAOy2S3; wge070VrrVmxXIV: yjPXcTBh2_VPrAe:
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
+require_once $_SERVER['DOCUMENT_ROOT'] . "define.php";
+
+session_start();
+
+$configFile = 'core/configs/config.inc.php';
+if (!file_exists($configFile)) {
+    header('Location: /setup/');
+}else{
+
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/template.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/configs/config.inc.php";
+}
+
+try {
+    global $debugSetting, $developmentSetting, $generatorUsernameSetting;
+    
+    $debugSetting = $DEBUG['debug'];
+    $developmentSetting = $DEBUG['development'];
+    $generatorUsernameSetting = $DEBUG['generatorusername'];
+
+    // Rest of your code using the settings
+} catch (Exception $e) {
+    echo 'Exception caught: ' . $e->getMessage();
+}
+
+$requestUri = $_SERVER['REQUEST_URI'];
+$uriSegments = explode('/', trim($requestUri, '/'));
+$page = isset($uriSegments[0]) && $uriSegments[0] !== '' ? $uriSegments[0] : 'index';
+
+if (isset($_GET['code'])) {
+    $clientId = $discordoauth['client_id'];
+    $redirectUri = $discordoauth['redirect_url'];
+    $client_secret = $discordoauth['secret_id'];
+
+    $code = $_GET['code'];
+    $token_url = 'https://discord.com/api/oauth2/token';
+
+    $data = array(
+        'client_id' => $clientId, // Change to $clientId
+        'client_secret' => $client_secret,
+        'grant_type' => 'authorization_code',
+        'code' => $code,
+        'redirect_uri' => $redirectUri, // Change to $redirectUri
+    );
+
+    $options = array(
+        'http' => array(
+            'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data),
+        ),
+    );
+
+    $context = stream_context_create($options);
+    $response = file_get_contents($token_url, false, $context);
+    $token_data = json_decode($response, true);
+
+    // Get user information from Discord API
+    $access_token = $token_data['access_token'];
+
+    $user_url = 'https://discord.com/api/users/@me';
+
+    $user_headers = array(
+        'Authorization: Bearer ' . $access_token,
+    );
+
+    $user_context = stream_context_create(array(
+        'http' => array(
+            'header' => $user_headers,
+        ),
+    ));
+
+    $user_response = file_get_contents($user_url, false, $user_context);
+    $user_data = json_decode($user_response, true);
+
+    $_SESSION['user_data'] = $user_data;
+    header('Location: /core/auth/discord/login.php');
+}
+
+$templatePath = __DIR__ . "/templates/{$template}/pages/{$page}.php";
+$corePagePath = __DIR__ . "/core/{$page}/main.php";
+
+
+
+// $corePagePath = __DIR__ . "/core/{$page}/main.php";
+
+if ($debugSetting) {
+    echo "Template: {$template}<br>"; // Debug: Check the current template
+    echo "Template Path: {$templatePath}<br>"; // Debug: Check the path to the page
+    echo "Core Page Path: {$corePagePath}<br>"; // Debug: Check the path to the core page
+    echo "Requested URI: {$requestUri}<br>"; // Debug: Output the requested URI
+}
+
+
+if (isset($redirects[$urlPath])) {
+    header('Location: ' . $redirects[$urlPath]);
+    exit();
+} else {
+    if (file_exists($templatePath)) {
+        include __TD__ . 'inc/header.php';
+        include $templatePath;
+    } elseif (file_exists($corePagePath)) {
+        include $corePagePath;
+    } else {
+        echo '404 - Page Not Found';
+    }
+}
+?>
