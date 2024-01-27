@@ -32,3 +32,6 @@ chmod -R 777 /sitedir/
 <!-- Answer 2 -->
 
 [donate me](https://oxapay.com/donate/48071260)
+
+
+не нарушайте лицензию спасибо
