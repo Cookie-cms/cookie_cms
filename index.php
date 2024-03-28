@@ -1,111 +1,44 @@
 <?php
 // error_reporting(E_ALL);
 // ini_set('display_errors', true);
-require_once $_SERVER['DOCUMENT_ROOT'] . "define.php";
-
+require_once $_SERVER['DOCUMENT_ROOT'] . "/define.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php";
 session_start();
+use Symfony\Component\Yaml\Yaml;
 
-$configFile = 'core/configs/config.inc.php';
-if (!file_exists($configFile)) {
-    header('Location: /setup/');
-}else{
+$data = Yaml::parseFile($_SERVER['DOCUMENT_ROOT'] . '/core/configs/config.inc.yaml');
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/inc/template.php";
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/core/configs/config.inc.php";
-}
 
-try {
-    global $debugSetting, $developmentSetting, $generatorUsernameSetting;
-    
-    $debugSetting = $DEBUG['debug'];
-    $developmentSetting = $DEBUG['development'];
-    $generatorUsernameSetting = $DEBUG['generatorusername'];
+$debugSetting = $data['DEBUG']['debuging'];
+$generatorUsernameSetting = $data['DEBUG']['generatorusername'];
+$registrationSetting = $data['registration'];
+$configFile = 'core/configs/config.inc.yaml';
 
-    // Rest of your code using the settings
-} catch (Exception $e) {
-    echo 'Exception caught: ' . $e->getMessage();
-}
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $uriSegments = explode('/', trim($requestUri, '/'));
 $page = isset($uriSegments[0]) && $uriSegments[0] !== '' ? $uriSegments[0] : 'index';
+define('__URI__', strstr($_SERVER['REQUEST_URI'], '?', true) ? strstr($_SERVER['REQUEST_URI'], '?', true) : $_SERVER['REQUEST_URI']);
+define('__URL__', array_slice(explode('/', substr(__URI__, 1)), 0, 3));
 
-if (isset($_GET['code'])) {
-    $clientId = $discordoauth['client_id'];
-    $redirectUri = $discordoauth['redirect_url'];
-    $client_secret = $discordoauth['secret_id'];
 
-    $code = $_GET['code'];
-    $token_url = 'https://discord.com/api/oauth2/token';
 
-    $data = array(
-        'client_id' => $clientId, // Change to $clientId
-        'client_secret' => $client_secret,
-        'grant_type' => 'authorization_code',
-        'code' => $code,
-        'redirect_uri' => $redirectUri, // Change to $redirectUri
-    );
-
-    $options = array(
-        'http' => array(
-            'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
-            'method' => 'POST',
-            'content' => http_build_query($data),
-        ),
-    );
-
-    $context = stream_context_create($options);
-    $response = file_get_contents($token_url, false, $context);
-    $token_data = json_decode($response, true);
-
-    // Get user information from Discord API
-    $access_token = $token_data['access_token'];
-
-    $user_url = 'https://discord.com/api/users/@me';
-
-    $user_headers = array(
-        'Authorization: Bearer ' . $access_token,
-    );
-
-    $user_context = stream_context_create(array(
-        'http' => array(
-            'header' => $user_headers,
-        ),
-    ));
-
-    $user_response = file_get_contents($user_url, false, $user_context);
-    $user_data = json_decode($user_response, true);
-
-    $_SESSION['user_data'] = $user_data;
-    header('Location: /core/auth/discord/login.php');
-}
-
-$templatePath = __DIR__ . "/templates/{$template}/pages/{$page}.php";
+$templatePath = __DIR__ . "/template/pages/{$page}.php";
 $corePagePath = __DIR__ . "/core/{$page}/main.php";
 
 
-
-// $corePagePath = __DIR__ . "/core/{$page}/main.php";
-
 if ($debugSetting) {
-    echo "Template: {$template}<br>"; // Debug: Check the current template
-    echo "Template Path: {$templatePath}<br>"; // Debug: Check the path to the page
     echo "Core Page Path: {$corePagePath}<br>"; // Debug: Check the path to the core page
     echo "Requested URI: {$requestUri}<br>"; // Debug: Output the requested URI
 }
 
 
-if (isset($redirects[$urlPath])) {
-    header('Location: ' . $redirects[$urlPath]);
-    exit();
+if (file_exists($templatePath)) {
+    include __TD__ . 'inc/header.php';
+    include $templatePath;
+} elseif (file_exists($corePagePath)) {
+    include $corePagePath;
 } else {
-    if (file_exists($templatePath)) {
-        include __TD__ . 'inc/header.php';
-        include $templatePath;
-    } elseif (file_exists($corePagePath)) {
-        include $corePagePath;
-    } else {
-        echo '404 - Page Not Found';
-    }
+    echo '404 - Page Not Found';
 }
 ?>

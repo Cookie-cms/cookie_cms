@@ -1,0 +1,14 @@
+:root {
+    --bg-color: black;
+    --text-color: white;
+    --background-image: url('../assets/night_bg.png');
+  
+  }
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: var(--background-image);
+    transition: background-image 0.5s ease;
+  }
