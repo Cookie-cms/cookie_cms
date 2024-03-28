@@ -7,7 +7,9 @@ facilities
   - change password
   - change skin
 - api
-
+  - ban/unban user
+  - change pass
+  - check connection
 ~~- admin panel~~
 
 ## FAQ
