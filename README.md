@@ -10,6 +10,7 @@ facilities
   - ban/unban user
   - change pass
   - check connection
+    
 ~~- admin panel~~
 
 ## FAQ
