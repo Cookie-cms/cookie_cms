@@ -1,0 +1,20 @@
+registration:
+    bydiscord: false
+    main: false
+DATABASE:
+    host: localhost
+    username: root
+    pass: ""
+    db: test
+    port: 3306
+DEBUG:
+    debuging: false
+    generatorusername: false
+discordoauth:
+    client_id: ""
+    secret_id: ""
+    scopes: identify
+    redirect_url: ""
+    bot: ""
+    guild_id: 0
+    role: 0

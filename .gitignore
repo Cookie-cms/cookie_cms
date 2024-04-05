@@ -1,0 +1,4 @@
+phpmyadmin
+.ignore
+uploads/
+/core/config.inc.php
